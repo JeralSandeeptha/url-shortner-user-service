@@ -6,9 +6,12 @@
     "outDir": "dist",
     "sourceMap": true,
     "noImplicitAny": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
     "allowImportingTsExtensions": true,
     "emitDeclarationOnly": true,
     "declaration": true,
+    "types": ["jest", "node"]
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "tests/**/*"],
 }
