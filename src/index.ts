@@ -5,6 +5,7 @@ import cors from 'cors';
 import http from 'http';
 import compression from 'compression';
 import { logger } from './config/logger.ts';
+import { config } from './config/config.ts';
 
 const app = express();
 
@@ -26,9 +27,11 @@ app.get('/health', (_req, res) => {
   res.status(200).json({ status: 'ok' });
 });
 
+// Create HTTP server
 const server = http.createServer(app);
 
-const port = process.env.PORT ? Number(process.env.PORT) : 3000;
+// Start server
+const port = config.port ? Number(config.port) : 3000;
 server.listen(port, () => {
   logger.info(`Server listening on http://localhost:${port}`);
 });
