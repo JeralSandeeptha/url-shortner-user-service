@@ -3,6 +3,7 @@ import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import compression from 'compression';
+import healthCheckRoute from './routes/v1/healthCheck.route.ts';
 
 const app = express();
 
@@ -19,9 +20,7 @@ app.use(cookieParser());
 app.use(bodyParser.json({ limit: '200mb' }));
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Health check
-app.get('/health', (_req, res) => {
-  res.status(200).json({ status: 'ok' });
-});
+// Custom Routes
+app.use('/server', healthCheckRoute);
 
 export { app };
