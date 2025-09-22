@@ -1,0 +1,37 @@
+{
+  "name": "ui-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon",
+    "lint:check": "eslint \"src/**/*.ts\"",
+    "lint:fix": "eslint \"src/**/*.ts\" --fix",
+    "prettier:check": "prettier --check \"src/**/*.{ts,json}\"",
+    "prettier:fix": "prettier --write \"src/**/*.{ts,json}\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "@types/body-parser": "^1.19.6",
+    "@types/compression": "^1.8.1",
+    "@types/cookie-parser": "^1.4.9",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "nodemon": "^3.1.10",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2",
+    "typescript-eslint": "^8.44.1"
+  },
+  "dependencies": {
+    "body-parser": "^2.2.0",
+    "compression": "^1.8.1",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "eslint": "^9.36.0",
+    "express": "^5.1.0",
+    "prettier": "^3.6.2"
+  }
+}
