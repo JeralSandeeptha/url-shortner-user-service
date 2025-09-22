@@ -44,7 +44,7 @@ if (config.elasticsearch.enabled) {
         '@timestamp': logData.timestamp,
         level: logData.level,
         message: logData.message,
-        service: 'ui-backend',
+        service: 'users_service',
         environment: config.env,
         stack: logData.stack,
         meta: logData.meta || {}
