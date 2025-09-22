@@ -4,14 +4,17 @@ import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import http from 'http';
 import compression from 'compression';
+import { logger } from './config/logger.ts';
 
 const app = express();
 
 // Middleware
 app.use(compression());
-app.use(cors({
-    credentials: true,
-}));
+app.use(
+  cors({
+    credentials: true
+  })
+);
 app.use(cookieParser());
 
 // body parsing
@@ -27,6 +30,5 @@ const server = http.createServer(app);
 
 const port = process.env.PORT ? Number(process.env.PORT) : 3000;
 server.listen(port, () => {
-  // eslint-disable-next-line no-console
-  console.log(`Server listening on http://localhost:${port}`);
+  logger.info(`Server listening on http://localhost:${port}`);
 });
