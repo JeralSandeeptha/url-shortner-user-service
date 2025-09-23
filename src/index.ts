@@ -1,3 +1,9 @@
+// Initialize APM first, before any other imports
+import { initializeAPM } from './config/apm.ts';
+
+// Initialize APM agent
+initializeAPM();
+
 import { logger } from './config/logger.ts';
 import { config } from './config/config.ts';
 import { server } from './server.ts';
