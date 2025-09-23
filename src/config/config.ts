@@ -12,7 +12,7 @@ export const config = {
     host: process.env.ELASTICSEARCH_HOST || 'http://localhost:9200',
     username: process.env.ELASTICSEARCH_USERNAME || 'elastic',
     password: process.env.ELASTICSEARCH_PASSWORD || 'admin1234',
-    index: process.env.ELASTICSEARCH_INDEX || 'ui-backend-logs',
+    index: process.env.ELASTICSEARCH_INDEX || 'user-service-logs',
     enabled: process.env.ELASTICSEARCH_LOGGING_ENABLED === 'true'
   }
 };

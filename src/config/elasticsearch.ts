@@ -1,5 +1,6 @@
 import { Client } from '@elastic/elasticsearch';
 import { config } from './config.ts';
+import { logger } from './logger.ts';
 
 // Create Elasticsearch client for testing and index management
 const elasticsearchClient = new Client({
@@ -18,9 +19,11 @@ export async function testElasticsearchConnection(): Promise<boolean> {
   try {
     const response = await elasticsearchClient.ping();
     console.log('✅ Elasticsearch connection successful');
+    logger.info('Elasticsearch connection successful');
     return true;
   } catch (error) {
     console.error('❌ Elasticsearch connection failed:', error);
+    logger.error('Elasticsearch connection failed', { error });
     return false;
   }
 }
@@ -54,10 +57,13 @@ export async function createLogIndex(): Promise<void> {
         },
       } as any);
       console.log(`✅ Created Elasticsearch index: ${config.elasticsearch.index}`);
+      logger.info(`Created Elasticsearch index: ${config.elasticsearch.index}`);
     } else {
       console.log(`✅ Elasticsearch index already exists: ${config.elasticsearch.index}`);
+      logger.info(`Elasticsearch index already exists: ${config.elasticsearch.index}`);
     }
   } catch (error) {
     console.error('❌ Failed to create Elasticsearch index:', error);
+    logger.error('Failed to create Elasticsearch index', { error });
   }
 }
